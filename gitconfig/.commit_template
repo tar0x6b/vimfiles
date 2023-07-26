@@ -1,0 +1,15 @@
+
+# ==== Commit Messages ====
+#
+# ==== Commit Messages(Template) ====
+# [種別]コミットの要約
+# 
+# （例）[init]最初のコミット:Initial commit
+#
+# [fix]    : バグ修正
+# [add]　  : 新規（ファイル）機能追加
+# [update] : 機能修正（バグではない）
+# [remove] : 削除（ファイル）
+# [change] : 仕様変更
+# 
+# [init]   : 最初のコミット

@@ -1,0 +1,22 @@
+# dein.toml
+# EOL:LF / code:UTF-8
+
+[[plugins]] # ステータスライン Lightline
+repo = 'itchyny/lightline.vim'
+
+[[plugins]] # Tender Color scheme
+repo = 'jacoborus/tender.vim'
+
+[[plugins]] # 多様なファイル形式に対応する vim-polyglot
+repo = 'sheerun/vim-polyglot'
+hook_add = '''
+" ## CSV
+let g:csv_start = 1
+let g:csv_end = 100
+let g:csv_no_conceal = 0
+let g:csv_delim_test = ',;|'
+'''
+
+[[plugins]] # YAMAHA製ルータのconfigをええ感じに見る為のsyntaxファイル rtx.vim
+repo = 'okkiroxx/rtx.vim'
+hook_add = 'autocmd BufRead,BufNewFile *config*.txt set filetype=rtx | set nowrap'
