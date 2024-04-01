@@ -124,6 +124,9 @@ set shiftwidth=4 " # 自動インデントに使われる空白を4桁
 set cmdheight=2 " # コマンドラインの高さ
 set showtabline=2 " # タブページのラベルを常に表示する
 set mouse=a " # マウスを使う
+set tabstop=4 " # タブ幅をスペース4つ分にする
+set expandtab " # tabを半角スペースで挿入する
+set shiftwidth=4 " # vimが自動で生成する（読み込み時など）tab幅をスペース4つ分にする
 
 " ## Caffeineアプリへの対応：<F15>キーを無視する
 map <F15> <Nop>
