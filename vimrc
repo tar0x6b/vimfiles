@@ -127,6 +127,7 @@ set mouse=a " # マウスを使う
 set tabstop=4 " # タブ幅をスペース4つ分にする
 set expandtab " # tabを半角スペースで挿入する
 set shiftwidth=4 " # vimが自動で生成する（読み込み時など）tab幅をスペース4つ分にする
+set belloff=all " # ビープ音を消す
 
 " ## Caffeineアプリへの対応：<F15>キーを無視する
 map <F15> <Nop>
@@ -180,8 +181,9 @@ nmap <C-V> "+Pa<ESC>
 " ## 挿入モード時、クリップボードから貼り付け
 imap <C-V> <ESC>"+pa
 
-" ## 選択部分をクリップボードの値に置き換え
+" ## 選択部分をクリップボードの値に置き換え=ヴィジュアルモードで連続貼付
 vmap <C-V> "_d"+P
+vmap p "_dP
 
 " ## コマンドライン時、クリップボードから貼り付け
 cmap <C-V> <C-R>+
@@ -189,13 +191,13 @@ cmap <C-V> <C-R>+
 " ## タブ切り替え
 " ### Go to next tab
 nmap <C-Tab> gt
-nmap <c-l> gt
-nmap <c-k> gt
+"nmap <C-l> gt
+"nmap <C-k> gt
 
 " ### Go to previous tab
 nmap <C-S-Tab> gT
-nmap <C-j> gT
-nmap <C-h> gT
+"nmap <C-j> gT
+"nmap <C-h> gT
 
 " # } キーバインド設定
 
@@ -204,3 +206,17 @@ let s:extend_vimrc = s:rc_dir . '/extend/vimrc_extend'
 if filereadable(expand(s:extend_vimrc))
   execute 'source ' s:extend_vimrc
 endif
+
+" #  { Power Shellをシェルに設定
+"
+if has('win32')
+    let s:pwsh_dir = '$PROGRAMFILES/PowerShell/7/pwsh.exe'
+    if !executable(expand(s:pwsh_dir))
+        let s:pwsh_dir = '$USERPROFILE/scoop/apps/pwsh/current/pwsh.exe'
+        if !executable(expand(s:pwsh_dir))
+            let s:pwsh_dir = '$SystemRoot/System32/WindowsPowerShell/v1.0/powershell.exe'
+        endif
+    endif
+    execute 'set shell=' . fnameescape(expand(s:pwsh_dir))
+endif
+" # } Power Shellをシェルに設定
